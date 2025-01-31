@@ -1,0 +1,15 @@
+---
+- name: Update Ubuntu Focal and set up MySQL master
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update and upgrade apt packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+
+    - name: Install Redis server
+      apt:
+        name: redis-server
+        state: present
+
